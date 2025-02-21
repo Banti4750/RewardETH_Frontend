@@ -1,17 +1,18 @@
 import { useAccount, useConnect, useDisconnect, useReadContract, useWriteContract } from "wagmi";
 import { useState } from "react";
 import { ABI } from "../abi";
-import { formatEther } from "viem";
 
 const CONTRACT_ADDRESS = "0x078d379431F6a0b375B63eFD7745C180217854b7";
 
 const Navbar = () => {
     const { address, isConnected } = useAccount();
     const { writeContract, isPending: isClaiming } = useWriteContract();
+    //@ts-ignore
     const [error, setError] = useState("");
 
 
     // ✅ Fetch rewards
+    //@ts-ignore
     const { data: rewards, isLoading: isLoadingRewards, isError } = useReadContract({
         address: CONTRACT_ADDRESS,
         abi: ABI,

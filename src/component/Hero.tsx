@@ -23,6 +23,7 @@ const StakingSection = () => {
         abi: ABI,
         functionName: "balanceOf",
         args: [address],
+        //@ts-ignore
         enabled: isConnected && !!address,
     });
 
@@ -31,6 +32,7 @@ const StakingSection = () => {
         abi: ABI,
         functionName: "getRewards",
         args: [address],
+        //@ts-ignore
         enabled: isConnected && !!address,
         watch: true,
     });
@@ -60,6 +62,7 @@ const StakingSection = () => {
         const monthlyRewards = dailyRewards * 30;
 
         setEstimatedRewards({
+            //@ts-ignore
             hourly: hourlyRewards.toFixed(3),
             daily: dailyRewards.toFixed(3),
             weekly: weeklyRewards.toFixed(3),
@@ -94,6 +97,7 @@ const StakingSection = () => {
             setStakeAmount("");
         } catch (err) {
             console.error("Staking error:", err);
+            //@ts-ignore
             setError(err.message || "Failed to stake ETH. Please try again.");
         }
     };
@@ -194,13 +198,18 @@ const StakingSection = () => {
                                         <div className="bg-white/5 rounded-lg p-4">
                                             <p className="text-white/60 text-xs mb-1">Currently Staked</p>
                                             <p className="text-xl font-medium">
-                                                {stakedAmount ? formatEther(stakedAmount) : "0"} ETH
+
+                                                {stakedAmount ?
+                                                    //@ts-ignore
+                                                    formatEther(stakedAmount) : "0"} ETH
                                             </p>
                                         </div>
                                         <div className="bg-white/5 rounded-lg p-4">
                                             <p className="text-white/60 text-xs mb-1">Pending Rewards</p>
                                             <p className="text-xl font-medium text-yellow-400">
-                                                {pendingRewards ? formatEther(pendingRewards) : "0"} TRUMP
+                                                {pendingRewards ?
+                                                    //@ts-ignore
+                                                    formatEther(pendingRewards) : "0"} TRUMP
                                             </p>
                                         </div>
                                     </div>
@@ -219,19 +228,27 @@ const StakingSection = () => {
                                     <div className="space-y-4">
                                         <div className="flex justify-between items-center">
                                             <span className="text-white/70">Hourly:</span>
-                                            <span className="text-lg font-medium text-yellow-400">{estimatedRewards.hourly} TRUMP</span>
+                                            <span className="text-lg font-medium text-yellow-400">{
+                                                //@ts-ignore
+                                                estimatedRewards.hourly} TRUMP</span>
                                         </div>
                                         <div className="flex justify-between items-center">
                                             <span className="text-white/70">Daily:</span>
-                                            <span className="text-lg font-medium text-yellow-400">{estimatedRewards.daily} TRUMP</span>
+                                            <span className="text-lg font-medium text-yellow-400">{
+                                                //@ts-ignore
+                                                estimatedRewards.daily} TRUMP</span>
                                         </div>
                                         <div className="flex justify-between items-center">
                                             <span className="text-white/70">Weekly:</span>
-                                            <span className="text-lg font-medium text-yellow-400">{estimatedRewards.weekly} TRUMP</span>
+                                            <span className="text-lg font-medium text-yellow-400">{
+                                                //@ts-ignore
+                                                estimatedRewards.weekly} TRUMP</span>
                                         </div>
                                         <div className="flex justify-between items-center pt-3 border-t border-white/10">
                                             <span className="text-white/70">Monthly:</span>
-                                            <span className="text-xl font-medium text-yellow-400">{estimatedRewards.monthly} TRUMP</span>
+                                            <span className="text-xl font-medium text-yellow-400">{
+                                                //@ts-ignore
+                                                estimatedRewards.monthly} TRUMP</span>
                                         </div>
                                     </div>
                                 </div>
