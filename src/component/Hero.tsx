@@ -86,7 +86,7 @@ const StakingSection = () => {
         }
 
         try {
-            const tx = await writeContract({
+            await writeContract({
                 address: CONTRACT_ADDRESS,
                 abi: ABI,
                 functionName: "stake",

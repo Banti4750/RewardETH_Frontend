@@ -31,6 +31,7 @@ const Unstake = () => {
             setError("Invalid amount.");
             return;
         }
+        //@ts-ignore
         if (Number(amount) > Number(formatEther(stakedBalance || 0))) {
             setError("Insufficient staked balance.");
             return;
@@ -60,7 +61,9 @@ const Unstake = () => {
 
             {/* Staked Balance */}
             <div className="mb-6 text-white/80">
-                <p>Staked: {isStakedLoading ? "Loading..." : `${formatEther(stakedBalance || 0)} ETH`}</p>
+                <p>Staked: {isStakedLoading ? "Loading..." : `${
+                    //@ts-ignore
+                    formatEther(stakedBalance || 0)} ETH`}</p>
             </div>
 
             {/* Unstaking Form */}
@@ -76,7 +79,9 @@ const Unstake = () => {
                         min="0"
                     />
                     <button
-                        onClick={() => stakedBalance && setAmount(formatEther(stakedBalance))}
+                        onClick={() => stakedBalance &&
+                            //@ts-ignore
+                            setAmount(formatEther(stakedBalance))}
                         disabled={!stakedBalance}
                         className="bg-white/10 px-3 py-2 rounded-lg hover:bg-white/20 transition text-white/80 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
