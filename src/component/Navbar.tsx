@@ -18,6 +18,8 @@ const Navbar = () => {
         abi: ABI,
         functionName: "getRewards",
         args: [address], // Pass user address if required
+        //@ts-ignore
+        watch: true,
     });
 
     // ✅ Function to Claim Rewards
@@ -36,6 +38,8 @@ const Navbar = () => {
                 abi: ABI,
                 functionName: "claimRewards",
                 args: [],
+                //@ts-ignore
+                watch: true,
             });
 
 

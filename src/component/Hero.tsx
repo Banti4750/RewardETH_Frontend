@@ -25,6 +25,7 @@ const StakingSection = () => {
         args: [address],
         //@ts-ignore
         enabled: isConnected && !!address,
+        watch: true,
     });
 
     const { data: pendingRewards } = useReadContract({

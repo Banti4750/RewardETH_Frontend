@@ -17,6 +17,8 @@ const Unstake = () => {
         abi: ABI,
         functionName: "balanceOf", // Replace with correct contract function if needed
         args: [address],
+        //@ts-ignore
+        watch: true,
     });
 
     // Handle unstake
@@ -45,6 +47,8 @@ const Unstake = () => {
                 abi: ABI,
                 functionName: "unstake",
                 args: [amountInWei], // Unstaking amount
+                //@ts-ignore
+                watch: true,
             });
 
 
